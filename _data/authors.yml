@@ -1,0 +1,17 @@
+Josh:
+  name        : "josh c"
+  bio         : "nurturing complexity"
+  avatar      : "/assets/images/lilnoun.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:jc@joshcrites.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://joshcrites.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/critesjosh_"
+    - label: "Github"
+      icon: "fab fa-fw fa-github-square"
+      url: "https://github.com/critesjosh"
