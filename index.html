@@ -1,101 +1,1020 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>joshcrites.com</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="./favicon/site.webmanifest">
-    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Josh Crites - Choice, technology, and nature</title>
+    <meta
+      name="description"
+      content="The personal site and digital garden of Josh Crites: work, experiments, notes, books, and questions about AI, privacy, developer tools, agency, and complex systems."
+    />
+    <link rel="canonical" href="https://joshcrites.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://joshcrites.com/" />
+    <meta
+      property="og:title"
+      content="Josh Crites - Technology, agency, intelligence, and emergence"
+    />
+    <meta
+      property="og:description"
+      content="Work, experiments, notes, books, and questions about AI, privacy, developer tools, agency, and complex systems."
+    />
+    <meta
+      property="og:image"
+      content="https://joshcrites.com/favicon/android-chrome-512x512.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Josh Crites - Technology, agency, intelligence, and emergence"
+    />
+    <meta
+      name="twitter:description"
+      content="Work, experiments, notes, books, and questions about AI, privacy, developer tools, agency, and complex systems."
+    />
+    <meta
+      name="twitter:image"
+      content="https://joshcrites.com/favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Josh Crites",
+        "url": "https://joshcrites.com/",
+        "email": "mailto:jc@joshcrites.com",
+        "sameAs": [
+          "https://github.com/critesjosh",
+          "https://twitter.com/critesjosh_"
+        ]
+      }
+    </script>
     <style>
+      :root {
+        --ink: #242522;
+        --muted: #65665f;
+        --paper: #f8f7f2;
+        --line: #d5d4ca;
+        --accent: #9d351e;
+        --accent-wash: #f1e4d8;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         margin: 0;
-        padding: 0;
-        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        line-height: 1.65;
       }
-
-      .container {
-        width: 80%;
-        margin: auto;
-        overflow: hidden;
+      a {
+        color: var(--accent);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.14em;
       }
-
-      header h1 {
-        text-align: center;
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 4px;
+      }
+      .skip-link {
+        position: fixed;
+        top: 0.75rem;
+        left: 0.75rem;
+        z-index: 5;
+        padding: 0.4rem 0.65rem;
+        color: var(--paper);
+        background: var(--ink);
+        transform: translateY(-160%);
+      }
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+      .page {
+        width: min(1100px, calc(100% - 2.5rem));
+        margin: 0 auto;
+      }
+      .site-header {
+        display: grid;
+        grid-template-columns: minmax(0, 720px) 180px;
+        gap: 2.5rem;
+        align-items: end;
+        padding: clamp(3.5rem, 10vw, 7rem) 0 3rem;
+        border-bottom: 1px solid var(--line);
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+      h1 {
+        max-width: 12ch;
+        margin-bottom: 0.2rem;
+        font-size: clamp(3rem, 7vw, 5.6rem);
+        line-height: 0.95;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+      h2 {
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
+        line-height: 1.1;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+      h3 {
+        margin-bottom: 0.35rem;
+        font-size: 1.3rem;
+        line-height: 1.2;
+        font-weight: 600;
+      }
+      .motto {
+        margin-bottom: 1.25rem;
+        color: var(--accent);
+        font-size: 1.25rem;
+        font-style: italic;
+      }
+      .intro {
+        max-width: 65ch;
+        font-size: 1.2rem;
+        line-height: 1.55;
+      }
+      .blockie {
+        width: min(100%, 150px);
+        justify-self: end;
+        image-rendering: pixelated;
+      }
+      .toc {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 2.5rem;
+        padding: 2.3rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .eyebrow,
+      .toc h2,
+      .section-number,
+      .meta,
+      .status,
+      .back-to-top {
+        font-family: var(--mono);
+        font-size: 0.73rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .toc h2 {
         margin: 0;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .toc ol {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem 2rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .toc a {
+        display: flex;
+        gap: 0.7rem;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .toc a span {
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.8rem;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 720px);
+        gap: 2.5rem;
+      }
+      section {
+        position: relative;
+        grid-column: 2;
+        padding: 4.5rem 0;
+        border-bottom: 1px solid var(--line);
+        scroll-margin-top: 1rem;
+      }
+      .section-number {
+        grid-column: 1;
+        align-self: start;
+        padding-top: 0.65rem;
+        color: var(--accent);
+      }
+      section::before {
+        content: attr(data-number);
+        position: absolute;
+        left: -202px;
+        top: 5.05rem;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.73rem;
+        letter-spacing: 0.05em;
+      }
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 0.8rem;
+      }
+      .section-heading .section-number {
+        display: none;
+      }
+      .section-intro {
+        max-width: 65ch;
+        color: #484943;
+      }
+      .questions {
+        margin: 2rem 0 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--line);
+        counter-reset: question;
+      }
+      .questions li {
+        position: relative;
+        padding: 1rem 0 1rem 3.2rem;
+        border-bottom: 1px solid var(--line);
+        counter-increment: question;
+      }
+      .questions li::before {
+        content: counter(question, decimal-leading-zero);
+        position: absolute;
+        left: 0;
+        top: 1.15rem;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+      }
+      .group-label {
+        margin: 2.75rem 0 0.75rem;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .entry {
+        padding: 1.4rem 0 1.6rem;
+        border-top: 1px solid var(--line);
+      }
+      .entry:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .entry h3 {
+        display: inline;
+      }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin: 0.45rem 0 0.8rem;
+        color: var(--muted);
+      }
+      .status {
+        display: inline-block;
+        padding: 0.12rem 0.38rem;
+        color: var(--accent);
+        background: var(--accent-wash);
+        border: 1px solid #d9bba9;
+      }
+      .entry p {
+        margin-bottom: 0.65rem;
+      }
+      .entry p:last-child {
+        margin-bottom: 0;
+      }
+      .links {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+      }
+      .links a + a::before {
+        content: " / ";
+        color: var(--muted);
+      }
+      details {
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+        border-left: 2px solid var(--accent);
+        background: #f2f0e8;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.85rem;
+      }
+      details p {
+        margin: 0.85rem 0 0;
+      }
+      .library-group {
+        margin-top: 2.3rem;
+      }
+      .book-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .book-list li {
+        padding: 1rem 0;
+        border-top: 1px solid var(--line);
+      }
+      .book-list li:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .book-title {
+        font-weight: 600;
+      }
+      .book-note {
+        display: block;
+        color: #484943;
+      }
+      .now-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 2rem;
+      }
+      .now-grid div {
+        padding: 1rem 0;
+        border-top: 1px solid var(--line);
+      }
+      .now-grid p {
+        margin-bottom: 0;
+      }
+      blockquote {
+        margin: 2rem 0 0;
+        padding: 1rem 1.4rem;
+        border-left: 3px solid var(--accent);
+        color: #3e3f3a;
+        font-size: 1.1rem;
+        font-style: italic;
+      }
+      blockquote p {
+        margin-bottom: 0.4rem;
+      }
+      cite {
+        display: block;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-style: normal;
+      }
+      .back-to-top {
+        display: inline-block;
+        margin-top: 2.5rem;
+        color: var(--muted);
+      }
+      footer {
+        padding: 2rem 0 4rem;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+      }
+      @media (min-width: 900px) {
+        .toc {
+          position: relative;
+        }
+        .toc h2 {
+          position: sticky;
+          top: 1.5rem;
+        }
+      }
+      @media (max-width: 700px) {
+        body {
+          font-size: 17px;
+        }
+        .page {
+          width: min(100% - 2rem, 720px);
+        }
+        .site-header {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          padding-top: 3.5rem;
+        }
+        .blockie {
+          width: 92px;
+          justify-self: start;
+          grid-row: 1;
+        }
+        .toc,
+        main {
+          display: block;
+        }
+        .toc h2 {
+          margin-bottom: 1rem;
+        }
+        .toc ol {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 3.25rem 0;
+        }
+        section::before {
+          position: static;
+          display: block;
+          margin-bottom: 0.55rem;
+        }
+        .now-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
       }
     </style>
   </head>
-  <body>
-    <div class="container" style="padding: 20px; min-height: 80vh">
-      <h2>joshcrites.com</h2>
+  <body id="top">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="page">
+      <header class="site-header">
+        <div>
+          <p class="eyebrow">Josh Crites</p>
+          <h1>Seeking high-potential realities.</h1>
+          <p class="motto">Technologist, educator, and systems thinker.</p>
+          <p class="intro">
+            I am interested in sovereignty, nature (in the most comprehensive
+            sense), and the tools people use to understand and shape the world.
+            My work has ranged from helping developers adopt cryptographic
+            technologies to experimenting with AI agents, private applications,
+            dream interpretation, music learning, and new forms of collective
+            human-computer collaboration.
+          </p>
+        </div>
+        <img
+          class="blockie"
+          src="/nounish_blockie.svg"
+          alt="A colorful pixel-art portrait of Josh"
+        />
+      </header>
 
-      <p><a href="yourland.html">→ Become a YourLand App Tester</a></p>
+      <nav class="toc" aria-labelledby="explore-heading">
+        <h2 id="explore-heading">Explore</h2>
+        <ol>
+          <li>
+            <a href="#questions"><span>01</span> Questions I'm exploring</a>
+          </li>
+          <li>
+            <a href="#work"><span>02</span> Work and experiments</a>
+          </li>
+          <li>
+            <a href="#ideas"><span>03</span> Ideas and notes</a>
+          </li>
+          <li>
+            <a href="#library"><span>04</span> Library</a>
+          </li>
+          <li>
+            <a href="#now"><span>05</span> Now</a>
+          </li>
+          <li>
+            <a href="#about"><span>06</span> About</a>
+          </li>
+          <li>
+            <a href="#contact"><span>07</span> Contact</a>
+          </li>
+        </ol>
+      </nav>
 
-      <div>
-        <img src="./nounish_blockie.svg" alt="my blockie">
+      <main id="content">
+        <section id="questions" data-number="01">
+          <h2>Questions I'm exploring</h2>
+          <p class="section-intro">
+            This site is organized around active inquiry. Some questions may
+            become projects or notes; others are useful because they remain
+            open.
+          </p>
+          <ol class="questions">
+            <li>
+              How does software development change when agents become
+              increasingly capable builders?
+            </li>
+            <li>
+              What forms of privacy and autonomy become necessary in an
+              AI-mediated world?
+            </li>
+            <li>
+              What allows individuals, groups, and machines to become more
+              intelligent together?
+            </li>
+            <li>
+              What does it mean to steward complexity rather than control it?
+            </li>
+          </ol>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+
+        <section id="work" data-number="02">
+          <h2>Work and experiments</h2>
+          <p class="section-intro">
+            Professional work, personal tools, and unfinished investigations
+            belong here together. Each is a way of testing an idea in the world.
+          </p>
+          <p class="group-label">Selected work</p>
+          <article class="entry">
+            <h3>Aztec and Noir developer ecosystem</h3>
+            <p class="meta">
+              <span>Developer relations and ecosystem design</span>
+            </p>
+            <p>
+              I led Developer Relations at Aztec, helping developers understand
+              and adopt difficult cryptographic infrastructure. The work
+              included education, documentation, workshops, examples, support
+              systems, ecosystem feedback, and team leadership. Later, I
+              increasingly explored AI-assisted developer experience and
+              agent-readable knowledge systems.
+            </p>
+            <p class="links">
+              <a href="https://aztec.network"
+                >Aztec <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://noir-lang.org"
+                >Noir <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a
+                href="https://docs.google.com/presentation/d/19g05il5QRhYsi3mFajd7EIoQleNkirp8Ob5ngTnY19w/edit#slide=id.p"
+                >Developer Relations presentation
+                <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Bank of JubJub</h3>
+            <p class="meta">
+              <span>Privacy and programmable transfers</span>
+            </p>
+            <p>
+              An exploration of private, on-chain transfers using zero-knowledge
+              proofs and homomorphic encryption. It asks what programmable
+              privacy can feel like in an application, rather than treating
+              privacy as a purely infrastructural feature.
+            </p>
+            <p class="links">
+              <a href="https://github.com/Bank-of-JubJub/base"
+                >Source code <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>On-device Aztec proving</h3>
+            <p class="meta">
+              <span>Android, Noir, zero-knowledge proofs</span>
+            </p>
+            <p>
+              A native Android proof of concept for generating and verifying
+              Aztec client-side proofs on the device. It explores what private
+              application infrastructure might look like when proving,
+              verification, and eventually wallet flows can move closer to the
+              person using them.
+            </p>
+            <p class="links">
+              <a href="https://github.com/critesjosh/aztec-mobile-proving"
+                >Source code <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Can't See Past My Shades</h3>
+            <p class="meta">
+              <span>ETHDenver 2024</span><span>Private applications</span>
+            </p>
+            <p>
+              A hackathon privacy application suite for ERC-20 tokens, including
+              sealed-bid auctions, private crowdfunding, and private token
+              voting. It was an experiment in giving people more agency in the
+              everyday applications built on public blockchains.
+            </p>
+            <p class="links">
+              <a href="https://github.com/critesjosh/past-my-shades"
+                >Source code <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <p class="group-label">Personal and emerging experiments</p>
+          <article class="entry">
+            <h3>DreamsLens</h3>
+            <p class="meta">
+              <span class="status">developing</span
+              ><span>AI and reflection</span>
+            </p>
+            <p>
+              An experiment in using AI as an interpretive partner, not to
+              deliver authoritative answers, but to help people explore
+              recurring symbols, patterns, and perspectives in their inner
+              lives.
+            </p>
+            <p class="links">
+              <a href="https://dreamslens.joshcrites.com"
+                >Visit DreamsLens <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://github.com/critesjosh/dreamlens"
+                >Source code <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Nounish Blockies</h3>
+            <p class="meta">
+              <span class="status">archived</span
+              ><span>Generative identity</span>
+            </p>
+            <p>
+              An earlier experiment in generative identity, onchain art, and
+              composable visual systems.
+            </p>
+            <p class="links">
+              <a href="https://github.com/critesjosh/nounish-blockies"
+                >Source code <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>AI-native developer experience</h3>
+            <p class="meta">
+              <span class="status">developing</span
+              ><span>Agents, knowledge systems, developer tools</span>
+            </p>
+            <p>
+              An ongoing investigation into how developer experience changes
+              when software is increasingly written by agents: agent-readable
+              documentation, MCP tools, evals, automated feedback loops, and
+              interfaces spanning the terminal, IDE, web, and chat.
+            </p>
+            <p class="links">
+              <a href="https://github.com/critesjosh/aztec-claude-plugin"
+                >Aztec Claude Code plugin <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://github.com/critesjosh/aztec-dev-env"
+                >Aztec development environment
+                <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Beyond OpenClaw</h3>
+            <p class="meta">
+              <span class="status">in development</span
+              ><span>Detroit workshop</span>
+            </p>
+            <p>
+              A planned workshop on agentic fundamentals beyond packaged
+              products: terminal-based harnesses, always-on home servers,
+              Raspberry Pi systems, Telegram interfaces, home automation, and
+              multiple persistent agent sessions.
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Piano learning experiments</h3>
+            <p class="meta">
+              <span class="status">active</span><span>Music, learning</span>
+            </p>
+            <p>
+              Using and adapting open-source tools while learning piano and
+              music theory, with an interest in the feedback loops that make
+              sustained practice more legible and rewarding.
+            </p>
+            <p class="links">
+              <a href="https://github.com/critesjosh/PianoBooster"
+                >PianoBooster work <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+
+        <section id="ideas" data-number="03">
+          <h2>Ideas and notes</h2>
+          <p class="section-intro">
+            This is an early assemblage. Some ideas may eventually become
+            essays; others may remain provisional notes or open questions.
+          </p>
+          <article class="entry">
+            <h3>Documentation as agent infrastructure</h3>
+            <p class="meta">
+              <span class="status">seed</span><span>Updated July 2026</span
+              ><span>Developer tools</span>
+            </p>
+            <p>
+              Documentation is increasingly used by more than a human reader. I
+              am interested in what makes technical knowledge legible to people
+              and capable agents without reducing it to a pile of retrieval
+              fragments.
+            </p>
+            <details>
+              <summary>Read the note</summary>
+              <p>
+                Good documentation carries context: why an interface exists, how
+                it fails, what has changed, and where uncertainty remains.
+                Agent-readable systems may need the same qualities, expressed in
+                structures that can be queried, tested, and kept current.
+              </p>
+            </details>
+          </article>
+          <article class="entry">
+            <h3>Privacy and meaningful choice</h3>
+            <p class="meta">
+              <span class="status">developing</span
+              ><span>Updated July 2026</span><span>Privacy, agency</span>
+            </p>
+            <p>
+              Privacy is not only about keeping secrets. It is part of the
+              practical space people need to experiment, change their minds,
+              form relationships, and make choices that are not immediately
+              optimized by a surrounding system.
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Stewarding complexity</h3>
+            <p class="meta">
+              <span class="status">seed</span
+              ><span>Complexity, collective intelligence</span>
+            </p>
+            <p>
+              How might we design systems that help people notice, hold, and
+              learn from complexity rather than prematurely simplifying it into
+              control?
+            </p>
+          </article>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+
+        <section id="library" data-number="04">
+          <h2>Library</h2>
+          <p class="section-intro">
+            I'm drawn to books that explore agency, consciousness, technological
+            change, human development, privacy, and the emergence of new forms
+            of order.
+          </p>
+          <div class="library-group">
+            <h3>Choice and process</h3>
+            <ul class="book-list">
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.goodreads.com/book/show/41819174-the-effective-choice"
+                  >The Effective Choice
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Forrest Landry's framework for freedom, constraint,
+                  cooperation, ownership, and the conditions that expand
+                  meaningful choice.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.amazon.com/Immanent-Metaphysics-Forrest-Landry/dp/B0CPSJ647N"
+                  >The Immanent Metaphysics
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Forrest Landry's inquiry into metaphysics, process, and the
+                  patterns beneath experience.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance"
+                  >Zen and the Art of Motorcycle Maintenance
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Robert Pirsig on quality, care, and the relationship between
+                  technical work and a life of thought.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="library-group">
+            <h3>Evolution and complexity</h3>
+            <ul class="book-list">
+              <li>
+                <a class="book-title" href="https://a.co/d/6Xvt5Xg"
+                  >A Universal Learning Process
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >An ongoing reference point for thinking about learning and
+                  intelligence across scales.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.theromanceofreality.com/"
+                  >The Romance of Reality
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Bobby Azarian's account of evolution, complexity, and the
+                  possibility of an increasingly integrated cosmos.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="library-group">
+            <h3>Meaning and transformation</h3>
+            <ul class="book-list">
+              <li>
+                <a
+                  class="book-title"
+                  href="https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality"
+                  >Sex, Ecology, Spirituality
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Ken Wilber's ambitious account of development, culture, and
+                  the unfolding of complexity.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.goodreads.com/book/show/57727014-god"
+                  >GOD <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >A book I return to while thinking about meaning, metaphysics,
+                  and experience.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.amazon.com/Exploring-World-Dreaming-Stephen-LaBerge/dp/034537410X"
+                  >Exploring the World of Lucid Dreaming
+                  <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Stephen LaBerge and Howard Rheingold's practical invitation
+                  to explore dream life with care and attention.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.goodreads.com/book/show/153747.Moby_Dick_or_the_Whale"
+                  >Moby Dick <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >One of my favorite novels: an immense exploration of
+                  obsession, knowledge, nature, fate, and the human urge to
+                  impose meaning on what exceeds us.</span
+                >
+              </li>
+              <li>
+                <a
+                  class="book-title"
+                  href="https://www.goodreads.com/book/show/33600.Shantaram"
+                  >Shantaram <span aria-hidden="true">&#8599;</span></a
+                ><span class="book-note"
+                  >Currently reading. A sprawling novel about exile,
+                  reinvention, friendship, moral ambiguity, and the search for
+                  belonging.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+
+        <section id="now" data-number="05">
+          <h2>Now</h2>
+          <p class="meta">Last updated: July 2026</p>
+          <div class="now-grid">
+            <div>
+              <h3>Building</h3>
+              <p>
+                Exploring AI-native developer experience, agent tools, and small
+                home-server experiments.
+              </p>
+            </div>
+            <div>
+              <h3>Learning</h3>
+              <p>
+                More about model tooling, agents, evaluation, piano, and music
+                theory.
+              </p>
+            </div>
+            <div>
+              <h3>Thinking about</h3>
+              <p>
+                Privacy, agency, collective intelligence, and what it means to
+                steward complexity.
+              </p>
+            </div>
+            <div>
+              <h3>Local</h3>
+              <p>
+                Developing a Detroit-area workshop on agentic fundamentals and
+                practical systems.
+              </p>
+            </div>
+          </div>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+
+        <section id="about" data-number="06">
+          <h2>About</h2>
+          <p>
+            I am based in the Detroit area. Much of my career has involved
+            helping developers engage with emerging technology, most recently
+            through developer relations leadership at Aztec and work with
+            cryptography, privacy, and developer ecosystems.
+          </p>
+          <p>
+            I am increasingly focused on AI, agents, developer tooling, and
+            knowledge systems. Outside of work, I keep returning to philosophy,
+            complexity, collective intelligence, dreams, music, education, and
+            technologies that support agency.
+          </p>
+          <p>
+            Across these different domains, I keep returning to the same
+            question: what conditions allow greater intelligence, agency, and
+            complexity to emerge?
+          </p>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+
+        <section id="contact" data-number="07">
+          <h2>Contact</h2>
+          <p>
+            <a href="mailto:jc@joshcrites.com">jc@joshcrites.com</a><br /><a
+              href="https://github.com/critesjosh"
+              >GitHub <span aria-hidden="true">&#8599;</span
+              ><span class="sr-only"> (external site)</span></a
+            >
+            &middot;
+            <a href="https://twitter.com/critesjosh_"
+              >X <span aria-hidden="true">&#8599;</span
+              ><span class="sr-only"> (external site)</span></a
+            >
+          </p>
+          <p>
+            My interest in privacy began with the cypherpunk conviction that
+            people need systems that preserve autonomy and meaningful choice.
+            That concern feels more, not less, important in a world increasingly
+            mediated by intelligent machines.
+          </p>
+          <blockquote>
+            <p>
+              "We the Cypherpunks are dedicated to building anonymous systems.
+              We are defending our privacy with cryptography, with anonymous
+              mail forwarding systems, with digital signatures, and with
+              electronic money."
+            </p>
+            <cite
+              >Eric Hughes,
+              <a href="https://www.activism.net/cypherpunk/manifesto.html"
+                >A Cypherpunk's Manifesto <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ></cite
+            >
+          </blockquote>
+          <a class="back-to-top" href="#top">Back to top</a>
+        </section>
+      </main>
+      <footer>
+        Josh Crites. A personal site and early digital assemblage.
+      </footer>
     </div>
-    
-      <p>    
-        <h2>About</h2>
-
-        A dreamer with a passion for learning. I am optimistic about social technologies that empower individuals, particularly cryptography and peer to peer networks.
-
-<p><i>Seeking high potential realities.</i></p>
-
-
-        <h2>Projects</h2>   
-
-        Here are a few of my software-related projects:
-
-        <ul>
-            <li>
-                I currently leading the developer relations team at <a href="https://aztec.network">Aztec Labs</a>.
-            </li>
-            <li>
-                You can read more about some of what I've learned about developer relations <a href="https://docs.google.com/presentation/d/19g05il5QRhYsi3mFajd7EIoQleNkirp8Ob5ngTnY19w/edit#slide=id.p">here</a>.
-            </li>
-            <li>
-                I'm also working on <a href="https://bankofjubjub.com">Bank of JubJub</a>, an on-chain, private transfer application using zk-snarks and homomorphic encryption.
-            </li>
-            <li>
-                A privacy suite for ERC20 tokens including sealed bid auctions, private crowd funding and private token voting, an Eth Denver 2024 hackathon project. <a href="https://github.com/critesjosh/past-my-shades">Cant see past my shades</a>.
-            </li>
-            <li>
-                I made <a href="https://github.com/critesjosh/nounish-blockies">Nounish Blockies</a>, a generative NFT project on Ethereum.
-            </li>
-            <li>
-                Track and explore your dreams at <a href="https://dreamlens.joshcrites.com">DreamsLens</a>.
-            </li>
-        </ul>
-
-        <h2>Contact</h2>
-
-        Email me at <a href="mailto:jc@joshcrites.com">jc@joshcrites.com</a> or find me on <a href="https://twitter.com/critesjosh_">X</a> or <a href="https://warpcast.com/crites">Farcaster</a>.
-
-        <h2>Books</h2>
-
-        Some of my favorite books:
-
-        <ul>
-          <li><a href="https://a.co/d/6Xvt5Xg">A Universal Learning Process</a></li>
-          <li><a href="https://www.amazon.com/Immanent-Metaphysics-Forrest-Landry/dp/B0CPSJ647N">The Immanent Metaphysics</a></li>
-          <li><a href="https://www.goodreads.com/book/show/41819174-the-effective-choice">The Effective Choice</a></li> 
-          <li><a href="https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality">Sex, Ecology, Spirituality</a></li>
-          <li><a href="https://www.amazon.com/Exploring-World-Dreaming-Stephen-LaBerge/dp/034537410X">Exploring the World of Lucid Dreaming</a></li>
-          <li><a href="https://www.theromanceofreality.com/">The Romance of Reality</a></li>
-          <li><a href="https://www.goodreads.com/book/show/57727014-god">GOD</a></li>
-          <li><a href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance">Zen and the Art of Motorcycle Maintenance</a></li>
-        </ul>
-
-        <hr>
-        "We the Cypherpunks are dedicated to building anonymous systems. We are defending our privacy with cryptography, with anonymous mail forwarding systems, with digital signatures, and with electronic money."
-        <i>Eric Hughes, <a href="https://www.activism.net/cypherpunk/manifesto.html">A Cypherpunk's Manifesto</a></i>
-      </p>
-    </div>
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
   </body>
 </html>
