@@ -58,7 +58,7 @@ to broader interests.
 Do not describe Josh as currently leading Developer Relations at Aztec. Use
 past tense and do not invent dates, team sizes, metrics, or results.
 
-Use **DreamsLens** consistently. Use **Can't See Past My Shades** with its
+Use **DreamLens** consistently. Use **Can't See Past My Shades** with its
 apostrophe.
 
 ## Questions
