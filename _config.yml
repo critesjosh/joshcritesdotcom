@@ -1,0 +1,10 @@
+title: Josh Crites
+description: Work, experiments, notes, books, and questions about technology, agency, intelligence, and emergence.
+url: https://joshcrites.com
+timezone: America/New_York
+markdown: kramdown
+permalink: /posts/:slug/
+
+exclude:
+  - AGENTS.md
+  - README.md
