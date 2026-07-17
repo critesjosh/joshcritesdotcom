@@ -1113,5 +1113,28 @@
         border: 0;
       }
     </style>
+    <script>
+      const openTargetSection = (hash) => {
+        if (!hash || hash === "#") return;
+
+        const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+        const disclosure = target?.matches("details.section-toggle")
+          ? target
+          : target?.querySelector(":scope > details.section-toggle");
+
+        if (disclosure) disclosure.open = true;
+      };
+
+      openTargetSection(window.location.hash);
+
+      window.addEventListener("hashchange", () => {
+        openTargetSection(window.location.hash);
+      });
+
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href^='#']");
+        if (link) openTargetSection(link.hash);
+      });
+    </script>
   </body>
 </html>
