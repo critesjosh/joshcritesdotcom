@@ -322,20 +322,36 @@
         content: " / ";
         color: var(--muted);
       }
-      details {
+      .entry details {
         margin-top: 1rem;
         padding: 0.8rem 1rem;
         border-left: 2px solid var(--accent);
         background: #f2f0e8;
       }
-      summary {
+      .entry summary {
         cursor: pointer;
         color: var(--accent);
         font-family: var(--mono);
         font-size: 0.85rem;
       }
-      details p {
+      .entry details p {
         margin: 0.85rem 0 0;
+      }
+      .section-toggle {
+        margin: 0;
+      }
+      .section-toggle > summary {
+        cursor: pointer;
+        list-style-position: outside;
+      }
+      .section-toggle > summary::marker {
+        color: var(--accent);
+      }
+      .section-toggle > summary h2 {
+        display: inline;
+      }
+      .section-content {
+        padding-top: 1rem;
       }
       .library-group {
         margin-top: 2.3rem;
@@ -515,7 +531,9 @@
 
       <main id="content">
         <section id="questions" data-number="01">
-          <h2>Questions I'm exploring</h2>
+          <details class="section-toggle" open>
+            <summary><h2>Questions I'm exploring</h2></summary>
+            <div class="section-content">
           <p class="section-intro">
             This site is organized around active inquiry. Some questions may
             become projects or notes; others are useful because they remain
@@ -539,10 +557,14 @@
             </li>
           </ol>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
 
         <section id="work" data-number="02">
-          <h2>Work and experiments</h2>
+          <details class="section-toggle" open>
+            <summary><h2>Work and experiments</h2></summary>
+            <div class="section-content">
           <p class="section-intro">
             Professional work, personal tools, and unfinished investigations
             belong here together. Each is a way of testing an idea in the world.
@@ -733,10 +755,14 @@
             </p>
           </article>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
 
         <section id="ideas" data-number="03">
-          <h2>Ideas and notes</h2>
+          <details class="section-toggle" open>
+            <summary><h2>Ideas and notes</h2></summary>
+            <div class="section-content">
           <p class="section-intro">
             Essays, provisional notes, and open questions. The shorter pieces
             may remain seeds; the longer ones follow an idea through the work
@@ -821,10 +847,14 @@
             </p>
           </article>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
 
         <section id="library" data-number="04">
-          <h2>Library</h2>
+          <details class="section-toggle" open>
+            <summary><h2>Library</h2></summary>
+            <div class="section-content">
           <p class="section-intro">
             I'm drawn to books that explore agency, consciousness, technological
             change, human development, privacy, and the emergence of new forms
@@ -954,10 +984,14 @@
             </ul>
           </div>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
 
         <section id="now" data-number="05">
-          <h2>Now</h2>
+          <details class="section-toggle" open>
+            <summary><h2>Now</h2></summary>
+            <div class="section-content">
           <p class="meta">Last updated: July 2026</p>
           <div class="now-grid">
             <div>
@@ -990,10 +1024,14 @@
             </div>
           </div>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
 
         <section id="about" data-number="06">
-          <h2>About</h2>
+          <details class="section-toggle" open>
+            <summary><h2>About</h2></summary>
+            <div class="section-content">
           <p>
             I am based in the Detroit area. Much of my career has involved
             helping developers engage with emerging technology, most recently
@@ -1012,10 +1050,14 @@
             complexity to emerge?
           </p>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
 
         <section id="contact" data-number="07">
-          <h2>Contact</h2>
+          <details class="section-toggle" open>
+            <summary><h2>Contact</h2></summary>
+            <div class="section-content">
           <p>
             <a href="mailto:jc@joshcrites.com">jc@joshcrites.com</a><br /><a
               href="https://github.com/critesjosh"
@@ -1050,6 +1092,8 @@
             >
           </blockquote>
           <a class="back-to-top" href="#top">Back to top</a>
+            </div>
+          </details>
         </section>
       </main>
       <footer>
