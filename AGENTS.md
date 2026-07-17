@@ -126,8 +126,14 @@ advertising, tracking pixels, or unnecessary third-party services.
 
 ## Working in This Repository
 
-This is currently a plain static HTML site with no package manager, build
-script, or test suite. Inspect the repository before assuming otherwise.
+This is a lightweight Jekyll site with a hand-authored static homepage and
+Markdown posts in `_posts/`. Ruby dependencies are pinned in `Gemfile.lock`;
+there is no JavaScript package manager or automated test suite. Inspect the
+repository before assuming otherwise.
+
+Cloudflare Pages is the production host and the only pull-request preview
+provider. It runs `bundle exec jekyll build`, publishes `_site/`, and deploys
+`main` to `joshcrites.com`. Do not add or re-enable Netlify build previews.
 
 For changes:
 
@@ -135,7 +141,8 @@ For changes:
 2. Make the smallest coherent change and preserve user-authored work.
 3. Check for duplicated content, names, punctuation, tense, and internal anchors.
 4. Run `git diff --check`.
-5. When browser tooling is available, inspect desktop and narrow mobile layouts,
+5. Run `bundle exec jekyll build` for changes that can affect generated output.
+6. When browser tooling is available, inspect desktop and narrow mobile layouts,
    keyboard focus, and anchor navigation.
 
 Ask Josh before splitting into multiple pages; adding a framework, CMS,
