@@ -353,6 +353,17 @@
       .section-content {
         padding-top: 1rem;
       }
+      .section-details {
+        margin-top: 1.5rem;
+      }
+      .section-details > summary {
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.85rem;
+      }
+      .section-details > .section-content {
+        padding-top: 1.5rem;
+      }
       .library-group {
         margin-top: 2.3rem;
       }
@@ -562,13 +573,14 @@
         </section>
 
         <section id="work" data-number="02">
-          <details class="section-toggle">
-            <summary><h2>Work and experiments</h2></summary>
-            <div class="section-content">
+          <h2>Work and experiments</h2>
           <p class="section-intro">
             Professional work, personal tools, and unfinished investigations
             belong here together. Each is a way of testing an idea in the world.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View work and experiments</summary>
+            <div class="section-content">
           <p class="group-label">Selected work</p>
           <article class="entry">
             <h3>Aztec and Noir developer ecosystem</h3>
@@ -743,13 +755,13 @@
               <span class="status">active</span><span>Music, learning</span>
             </p>
             <p>
-              Using and adapting open-source tools while learning piano and
-              music theory, with an interest in the feedback loops that make
-              sustained practice more legible and rewarding.
+              Using PianoBooster while learning piano and music theory, with an
+              interest in the feedback loops that make sustained practice more
+              legible and rewarding.
             </p>
             <p class="links">
-              <a href="https://github.com/critesjosh/PianoBooster"
-                >PianoBooster work <span aria-hidden="true">&#8599;</span
+              <a href="https://github.com/pianobooster/PianoBooster"
+                >PianoBooster project <span aria-hidden="true">&#8599;</span
                 ><span class="sr-only"> (external site)</span></a
               >
             </p>
@@ -760,14 +772,15 @@
         </section>
 
         <section id="ideas" data-number="03">
-          <details class="section-toggle">
-            <summary><h2>Ideas and notes</h2></summary>
-            <div class="section-content">
+          <h2>Ideas and notes</h2>
           <p class="section-intro">
             Essays, provisional notes, and open questions. The shorter pieces
             may remain seeds; the longer ones follow an idea through the work
             that shaped it.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View ideas and notes</summary>
+            <div class="section-content">
           <article class="entry">
             <h3>
               <a href="/posts/ai-native-developer-support-at-aztec/"
@@ -989,30 +1002,35 @@
         </section>
 
         <section id="now" data-number="05">
-          <details class="section-toggle">
-            <summary><h2>Now</h2></summary>
-            <div class="section-content">
+          <h2>Now</h2>
           <p class="meta">Last updated: July 2026</p>
+          <details class="section-toggle section-details">
+            <summary>View current focus</summary>
+            <div class="section-content">
           <div class="now-grid">
             <div>
               <h3>Building</h3>
               <p>
-                Exploring AI-native developer experience, agent tools, and small
-                home-server experiments.
+                Agent-readiness tools that test whether coding agents can
+                complete real developer journeys from public documentation,
+                along with benchmarks and knowledge systems for AI-assisted
+                software development.
               </p>
             </div>
             <div>
               <h3>Learning</h3>
               <p>
-                More about model tooling, agents, evaluation, piano, and music
-                theory.
+                Model training and fine-tuning, synthetic data, open-source
+                model internals, and the constraints of running small models on
+                private, local hardware.
               </p>
             </div>
             <div>
               <h3>Thinking about</h3>
               <p>
-                Privacy, agency, collective intelligence, and what it means to
-                steward complexity.
+                How model behavior, agent harnesses, tools, and structured
+                knowledge should divide responsibility—and how those systems
+                can preserve user agency.
               </p>
             </div>
             <div>
