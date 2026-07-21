@@ -347,9 +347,6 @@
       .section-toggle > summary::marker {
         color: var(--accent);
       }
-      .section-toggle > summary h2 {
-        display: inline;
-      }
       .section-content {
         padding-top: 1rem;
       }
@@ -542,14 +539,15 @@
 
       <main id="content">
         <section id="questions" data-number="01">
-          <details class="section-toggle" open>
-            <summary><h2>Questions I'm exploring</h2></summary>
-            <div class="section-content">
+          <h2>Questions I'm exploring</h2>
           <p class="section-intro">
             This site is organized around active inquiry. Some questions may
             become projects or notes; others are useful because they remain
             open.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View questions</summary>
+            <div class="section-content">
           <ol class="questions">
             <li>
               How does software development change when agents become
@@ -865,14 +863,15 @@
         </section>
 
         <section id="library" data-number="04">
-          <details class="section-toggle">
-            <summary><h2>Library</h2></summary>
-            <div class="section-content">
+          <h2>Library</h2>
           <p class="section-intro">
             I'm drawn to books that explore agency, consciousness, technological
             change, human development, privacy, and the emergence of new forms
             of order.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View library</summary>
+            <div class="section-content">
           <div class="library-group">
             <h3>Choice and process</h3>
             <ul class="book-list">
@@ -1047,15 +1046,16 @@
         </section>
 
         <section id="about" data-number="06">
-          <details class="section-toggle">
-            <summary><h2>About</h2></summary>
-            <div class="section-content">
-          <p>
+          <h2>About</h2>
+          <p class="section-intro">
             I am based in the Detroit area. Much of my career has involved
             helping developers engage with emerging technology, most recently
             through developer relations leadership at Aztec and work with
             cryptography, privacy, and developer ecosystems.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View more about me</summary>
+            <div class="section-content">
           <p>
             I am increasingly focused on AI, agents, developer tooling, and
             knowledge systems. Outside of work, I keep returning to philosophy,
@@ -1073,10 +1073,8 @@
         </section>
 
         <section id="contact" data-number="07">
-          <details class="section-toggle">
-            <summary><h2>Contact</h2></summary>
-            <div class="section-content">
-          <p>
+          <h2>Contact</h2>
+          <p class="section-intro">
             <a href="mailto:jc@joshcrites.com">jc@joshcrites.com</a><br /><a
               href="https://github.com/critesjosh"
               >GitHub <span aria-hidden="true">&#8599;</span
@@ -1088,6 +1086,9 @@
               ><span class="sr-only"> (external site)</span></a
             >
           </p>
+          <details class="section-toggle section-details">
+            <summary>View privacy note</summary>
+            <div class="section-content">
           <p>
             My interest in privacy began with the cypherpunk conviction that
             people need systems that preserve autonomy and meaningful choice.
