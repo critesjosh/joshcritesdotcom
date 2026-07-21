@@ -96,7 +96,8 @@
         text-decoration-thickness: 2px;
       }
       a:focus-visible,
-      summary:focus-visible {
+      summary:focus-visible,
+      .section-close:focus-visible {
         outline: 3px solid var(--accent);
         outline-offset: 4px;
       }
@@ -184,7 +185,7 @@
       .section-number,
       .meta,
       .status,
-      .back-to-top {
+      .section-close {
         font-family: var(--mono);
         font-size: 0.73rem;
         letter-spacing: 0.05em;
@@ -412,10 +413,20 @@
         font-size: 0.78rem;
         font-style: normal;
       }
-      .back-to-top {
+      .section-close {
         display: inline-block;
         margin-top: 2.5rem;
+        padding: 0;
+        border: 0;
         color: var(--muted);
+        background: transparent;
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.14em;
+      }
+      .section-close:hover {
+        text-decoration-thickness: 2px;
       }
       footer {
         padding: 2rem 0 4rem;
@@ -565,7 +576,7 @@
               What does it mean to steward complexity rather than control it?
             </li>
           </ol>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
@@ -764,7 +775,7 @@
               >
             </p>
           </article>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
@@ -857,7 +868,7 @@
               control?
             </p>
           </article>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
@@ -995,7 +1006,7 @@
               </li>
             </ul>
           </div>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
@@ -1040,7 +1051,7 @@
               </p>
             </div>
           </div>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
@@ -1067,7 +1078,7 @@
             question: what conditions allow greater intelligence, agency, and
             complexity to emerge?
           </p>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
@@ -1086,9 +1097,6 @@
               ><span class="sr-only"> (external site)</span></a
             >
           </p>
-          <details class="section-toggle section-details">
-            <summary>View privacy note</summary>
-            <div class="section-content">
           <p>
             My interest in privacy began with the cypherpunk conviction that
             people need systems that preserve autonomy and meaningful choice.
@@ -1110,9 +1118,6 @@
               ></cite
             >
           </blockquote>
-          <a class="back-to-top" href="#top">Back to top</a>
-            </div>
-          </details>
         </section>
       </main>
       <footer>
@@ -1151,6 +1156,16 @@
       });
 
       document.addEventListener("click", (event) => {
+        const closeButton = event.target.closest(".section-close");
+        if (closeButton) {
+          const disclosure = closeButton.closest("details.section-toggle");
+          const summary = disclosure?.querySelector(":scope > summary");
+
+          if (disclosure) disclosure.open = false;
+          summary?.focus();
+          return;
+        }
+
         const link = event.target.closest("a[href^='#']");
         if (link) openTargetSection(link.hash);
       });
