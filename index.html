@@ -96,7 +96,8 @@
         text-decoration-thickness: 2px;
       }
       a:focus-visible,
-      summary:focus-visible {
+      summary:focus-visible,
+      .section-close:focus-visible {
         outline: 3px solid var(--accent);
         outline-offset: 4px;
       }
@@ -184,7 +185,7 @@
       .section-number,
       .meta,
       .status,
-      .back-to-top {
+      .section-close {
         font-family: var(--mono);
         font-size: 0.73rem;
         letter-spacing: 0.05em;
@@ -347,11 +348,19 @@
       .section-toggle > summary::marker {
         color: var(--accent);
       }
-      .section-toggle > summary h2 {
-        display: inline;
-      }
       .section-content {
         padding-top: 1rem;
+      }
+      .section-details {
+        margin-top: 1.5rem;
+      }
+      .section-details > summary {
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.85rem;
+      }
+      .section-details > .section-content {
+        padding-top: 1.5rem;
       }
       .library-group {
         margin-top: 2.3rem;
@@ -404,10 +413,20 @@
         font-size: 0.78rem;
         font-style: normal;
       }
-      .back-to-top {
+      .section-close {
         display: inline-block;
         margin-top: 2.5rem;
+        padding: 0;
+        border: 0;
         color: var(--muted);
+        background: transparent;
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.14em;
+      }
+      .section-close:hover {
+        text-decoration-thickness: 2px;
       }
       footer {
         padding: 2rem 0 4rem;
@@ -531,14 +550,15 @@
 
       <main id="content">
         <section id="questions" data-number="01">
-          <details class="section-toggle" open>
-            <summary><h2>Questions I'm exploring</h2></summary>
-            <div class="section-content">
+          <h2>Questions I'm exploring</h2>
           <p class="section-intro">
             This site is organized around active inquiry. Some questions may
             become projects or notes; others are useful because they remain
             open.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View questions</summary>
+            <div class="section-content">
           <ol class="questions">
             <li>
               How does software development change when agents become
@@ -556,19 +576,20 @@
               What does it mean to steward complexity rather than control it?
             </li>
           </ol>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
 
         <section id="work" data-number="02">
-          <details class="section-toggle">
-            <summary><h2>Work and experiments</h2></summary>
-            <div class="section-content">
+          <h2>Work and experiments</h2>
           <p class="section-intro">
             Professional work, personal tools, and unfinished investigations
             belong here together. Each is a way of testing an idea in the world.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View work and experiments</summary>
+            <div class="section-content">
           <p class="group-label">Selected work</p>
           <article class="entry">
             <h3>Aztec and Noir developer ecosystem</h3>
@@ -743,31 +764,32 @@
               <span class="status">active</span><span>Music, learning</span>
             </p>
             <p>
-              Using and adapting open-source tools while learning piano and
-              music theory, with an interest in the feedback loops that make
-              sustained practice more legible and rewarding.
+              Using PianoBooster while learning piano and music theory, with an
+              interest in the feedback loops that make sustained practice more
+              legible and rewarding.
             </p>
             <p class="links">
-              <a href="https://github.com/critesjosh/PianoBooster"
-                >PianoBooster work <span aria-hidden="true">&#8599;</span
+              <a href="https://github.com/pianobooster/PianoBooster"
+                >PianoBooster project <span aria-hidden="true">&#8599;</span
                 ><span class="sr-only"> (external site)</span></a
               >
             </p>
           </article>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
 
         <section id="ideas" data-number="03">
-          <details class="section-toggle">
-            <summary><h2>Ideas and notes</h2></summary>
-            <div class="section-content">
+          <h2>Ideas and notes</h2>
           <p class="section-intro">
             Essays, provisional notes, and open questions. The shorter pieces
             may remain seeds; the longer ones follow an idea through the work
             that shaped it.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View ideas and notes</summary>
+            <div class="section-content">
           <article class="entry">
             <h3>
               <a href="/posts/ai-native-developer-support-at-aztec/"
@@ -846,20 +868,21 @@
               control?
             </p>
           </article>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
 
         <section id="library" data-number="04">
-          <details class="section-toggle">
-            <summary><h2>Library</h2></summary>
-            <div class="section-content">
+          <h2>Library</h2>
           <p class="section-intro">
             I'm drawn to books that explore agency, consciousness, technological
             change, human development, privacy, and the emergence of new forms
             of order.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View library</summary>
+            <div class="section-content">
           <div class="library-group">
             <h3>Choice and process</h3>
             <ul class="book-list">
@@ -983,36 +1006,41 @@
               </li>
             </ul>
           </div>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
 
         <section id="now" data-number="05">
-          <details class="section-toggle">
-            <summary><h2>Now</h2></summary>
-            <div class="section-content">
+          <h2>Now</h2>
           <p class="meta">Last updated: July 2026</p>
+          <details class="section-toggle section-details">
+            <summary>View current focus</summary>
+            <div class="section-content">
           <div class="now-grid">
             <div>
               <h3>Building</h3>
               <p>
-                Exploring AI-native developer experience, agent tools, and small
-                home-server experiments.
+                Agent-readiness tools that test whether coding agents can
+                complete real developer journeys from public documentation,
+                along with benchmarks and knowledge systems for AI-assisted
+                software development.
               </p>
             </div>
             <div>
               <h3>Learning</h3>
               <p>
-                More about model tooling, agents, evaluation, piano, and music
-                theory.
+                Model training and fine-tuning, synthetic data, open-source
+                model internals, and the constraints of running small models on
+                private, local hardware.
               </p>
             </div>
             <div>
               <h3>Thinking about</h3>
               <p>
-                Privacy, agency, collective intelligence, and what it means to
-                steward complexity.
+                How model behavior, agent harnesses, tools, and structured
+                knowledge should divide responsibility—and how those systems
+                can preserve user agency.
               </p>
             </div>
             <div>
@@ -1023,21 +1051,22 @@
               </p>
             </div>
           </div>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
 
         <section id="about" data-number="06">
-          <details class="section-toggle">
-            <summary><h2>About</h2></summary>
-            <div class="section-content">
-          <p>
+          <h2>About</h2>
+          <p class="section-intro">
             I am based in the Detroit area. Much of my career has involved
             helping developers engage with emerging technology, most recently
             through developer relations leadership at Aztec and work with
             cryptography, privacy, and developer ecosystems.
           </p>
+          <details class="section-toggle section-details">
+            <summary>View more about me</summary>
+            <div class="section-content">
           <p>
             I am increasingly focused on AI, agents, developer tooling, and
             knowledge systems. Outside of work, I keep returning to philosophy,
@@ -1049,16 +1078,14 @@
             question: what conditions allow greater intelligence, agency, and
             complexity to emerge?
           </p>
-          <a class="back-to-top" href="#top">Back to top</a>
+          <button class="section-close" type="button">Close section</button>
             </div>
           </details>
         </section>
 
         <section id="contact" data-number="07">
-          <details class="section-toggle">
-            <summary><h2>Contact</h2></summary>
-            <div class="section-content">
-          <p>
+          <h2>Contact</h2>
+          <p class="section-intro">
             <a href="mailto:jc@joshcrites.com">jc@joshcrites.com</a><br /><a
               href="https://github.com/critesjosh"
               >GitHub <span aria-hidden="true">&#8599;</span
@@ -1091,9 +1118,6 @@
               ></cite
             >
           </blockquote>
-          <a class="back-to-top" href="#top">Back to top</a>
-            </div>
-          </details>
         </section>
       </main>
       <footer>
@@ -1132,6 +1156,16 @@
       });
 
       document.addEventListener("click", (event) => {
+        const closeButton = event.target.closest(".section-close");
+        if (closeButton) {
+          const disclosure = closeButton.closest("details.section-toggle");
+          const summary = disclosure?.querySelector(":scope > summary");
+
+          if (disclosure) disclosure.open = false;
+          summary?.focus();
+          return;
+        }
+
         const link = event.target.closest("a[href^='#']");
         if (link) openTargetSection(link.hash);
       });
