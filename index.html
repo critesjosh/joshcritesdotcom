@@ -53,7 +53,7 @@
     <script>
       document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="/assets/field.css?v=4" />
+    <link rel="stylesheet" href="/assets/field.css?v=5" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -426,10 +426,31 @@
         text-decoration-thickness: 2px;
       }
       footer {
-        padding: 2rem 0 4rem;
-        color: var(--muted);
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        min-height: clamp(28rem, 72svh, 52rem);
+        padding: 4rem 0;
+        overflow: hidden;
+        color: #fff8ea;
+        background: #161219 url("/assets/footer-sunset.webp") center 55% / cover no-repeat;
         font-family: var(--mono);
         font-size: 0.75rem;
+      }
+      footer::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        pointer-events: none;
+        background:
+          linear-gradient(to bottom, var(--paper), transparent 18%),
+          linear-gradient(to top, rgba(6, 10, 18, 0.72), transparent 48%);
+      }
+      .footer-inner {
+        position: relative;
+        z-index: 1;
+        width: min(1100px, calc(100% - 2.5rem));
+        margin: 0 auto;
       }
       @media (min-width: 900px) {
         h1 {
@@ -1140,10 +1161,12 @@
           </blockquote>
         </section>
       </main>
-      <footer>
-        Josh Crites. A personal site and early digital assemblage.
-      </footer>
     </div>
+    <footer>
+      <div class="footer-inner">
+        Josh Crites. A personal site and early digital assemblage.
+      </div>
+    </footer>
     <style>
       .sr-only {
         position: absolute;

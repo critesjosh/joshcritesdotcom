@@ -48,15 +48,15 @@
 }
 
 .concept-field-scene-sunset {
-  animation-delay: -8s;
-}
-
-.concept-field-scene-forest {
   opacity: 1;
 }
 
-.concept-field-scene-leaf {
+.concept-field-scene-forest {
   animation-delay: -16s;
+}
+
+.concept-field-scene-leaf {
+  animation-delay: -8s;
 }
 
 .concept-field-image {
