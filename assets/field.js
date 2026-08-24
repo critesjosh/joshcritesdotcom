@@ -245,16 +245,24 @@
       x: event.clientX - bounds.left,
       y: event.clientY - bounds.top,
     };
-    const shiftX = ((pointer.x / width) - .5) * -8;
-    const shiftY = ((pointer.y / height) - .5) * -6;
-    field.style.setProperty("--image-shift-x", shiftX + "px");
-    field.style.setProperty("--image-shift-y", shiftY + "px");
+    const normalizedX = (pointer.x / width) - .5;
+    const normalizedY = (pointer.y / height) - .5;
+    field.style.setProperty("--image-shift-x", normalizedX * -7 + "px");
+    field.style.setProperty("--image-shift-y", normalizedY * -5 + "px");
+    field.style.setProperty("--mid-shift-x", normalizedX * -11 + "px");
+    field.style.setProperty("--mid-shift-y", normalizedY * -8 + "px");
+    field.style.setProperty("--foreground-shift-x", normalizedX * -17 + "px");
+    field.style.setProperty("--foreground-shift-y", normalizedY * -12 + "px");
   }, { passive: true });
 
   field.addEventListener("pointerleave", () => {
     pointer = null;
     field.style.setProperty("--image-shift-x", "0px");
     field.style.setProperty("--image-shift-y", "0px");
+    field.style.setProperty("--mid-shift-x", "0px");
+    field.style.setProperty("--mid-shift-y", "0px");
+    field.style.setProperty("--foreground-shift-x", "0px");
+    field.style.setProperty("--foreground-shift-y", "0px");
     setLens("");
   });
 
