@@ -39,11 +39,31 @@
   background: linear-gradient(to bottom, transparent, var(--paper));
 }
 
+.concept-field-scene {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  opacity: 0;
+  animation: field-scene-cycle 24s linear infinite;
+}
+
+.concept-field-scene-sunset {
+  animation-delay: -8s;
+}
+
+.concept-field-scene-forest {
+  opacity: 1;
+}
+
+.concept-field-scene-leaf {
+  animation-delay: -16s;
+}
+
 .concept-field-image {
   position: absolute;
   inset: -2.5%;
   pointer-events: none;
-  background-position: center 54%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   will-change: transform;
@@ -51,23 +71,64 @@
 
 .concept-field-image-base {
   z-index: 0;
-  background-image: url("/assets/header-sunset.webp");
   transform: translate3d(var(--image-shift-x), var(--image-shift-y), 0) scale(1.045);
   animation: field-image-drift 28s ease-in-out infinite alternate;
 }
 
 .concept-field-image-mid {
   z-index: 1;
-  background-image: url("/assets/header-mid.webp");
   transform: translate3d(var(--mid-shift-x), var(--mid-shift-y), 0) scale(1.045);
   animation: field-mid-drift 23s ease-in-out infinite alternate;
 }
 
 .concept-field-image-foreground {
   z-index: 2;
-  background-image: url("/assets/header-foreground.webp");
   transform: translate3d(var(--foreground-shift-x), var(--foreground-shift-y), 0) scale(1.045);
   animation: field-foreground-drift 18s ease-in-out infinite alternate;
+}
+
+.concept-field-scene-sunset .concept-field-image {
+  background-position: center 54%;
+}
+
+.concept-field-scene-sunset .concept-field-image-base {
+  background-image: url("/assets/header-sunset.webp");
+}
+
+.concept-field-scene-sunset .concept-field-image-mid {
+  background-image: url("/assets/header-mid.webp");
+}
+
+.concept-field-scene-sunset .concept-field-image-foreground {
+  background-image: url("/assets/header-foreground.webp");
+}
+
+.concept-field-scene-forest .concept-field-image-base {
+  background-image: url("/assets/forest-path-base.webp");
+}
+
+.concept-field-scene-forest .concept-field-image-mid {
+  background-image: url("/assets/forest-path-mid.webp");
+}
+
+.concept-field-scene-forest .concept-field-image-foreground {
+  background-image: url("/assets/forest-path-foreground.webp");
+}
+
+.concept-field-scene-leaf .concept-field-image {
+  background-position: center 48%;
+}
+
+.concept-field-scene-leaf .concept-field-image-base {
+  background-image: url("/assets/orange-leaf-base.webp");
+}
+
+.concept-field-scene-leaf .concept-field-image-mid {
+  background-image: url("/assets/orange-leaf-mid.webp");
+}
+
+.concept-field-scene-leaf .concept-field-image-foreground {
+  background-image: url("/assets/orange-leaf-foreground.webp");
 }
 
 .concept-field-canvas {
@@ -232,6 +293,20 @@
   }
 }
 
+@keyframes field-scene-cycle {
+  0%, 27% {
+    opacity: 1;
+  }
+
+  33%, 94% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes field-image-drift {
   from {
     transform: translate3d(var(--image-shift-x), var(--image-shift-y), 0) scale(1.045);
@@ -260,6 +335,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .concept-field-scene {
+    opacity: 0;
+    animation: none;
+  }
+
+  .concept-field-scene-sunset {
+    opacity: 1;
+  }
+
   .concept-field-image {
     animation: none;
     transform: scale(1.045);

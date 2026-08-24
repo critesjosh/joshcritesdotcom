@@ -53,7 +53,7 @@
     <script>
       document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="/assets/field.css" />
+    <link rel="stylesheet" href="/assets/field.css?v=4" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -496,18 +496,21 @@
       data-presence-url="/assets/presence.json"
       aria-label="Introduction and site navigation"
     >
-      <div
-        class="concept-field-image concept-field-image-base"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="concept-field-image concept-field-image-mid"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="concept-field-image concept-field-image-foreground"
-        aria-hidden="true"
-      ></div>
+      <div class="concept-field-scene concept-field-scene-sunset" aria-hidden="true">
+        <div class="concept-field-image concept-field-image-base"></div>
+        <div class="concept-field-image concept-field-image-mid"></div>
+        <div class="concept-field-image concept-field-image-foreground"></div>
+      </div>
+      <div class="concept-field-scene concept-field-scene-forest" aria-hidden="true">
+        <div class="concept-field-image concept-field-image-base"></div>
+        <div class="concept-field-image concept-field-image-mid"></div>
+        <div class="concept-field-image concept-field-image-foreground"></div>
+      </div>
+      <div class="concept-field-scene concept-field-scene-leaf" aria-hidden="true">
+        <div class="concept-field-image concept-field-image-base"></div>
+        <div class="concept-field-image concept-field-image-mid"></div>
+        <div class="concept-field-image concept-field-image-foreground"></div>
+      </div>
       <canvas class="concept-field-canvas" aria-hidden="true"></canvas>
       <div class="concept-field-interface">
         <header class="concept-field-profile">
