@@ -1,0 +1,54 @@
+{
+  "updated_at": "2026-08-24T12:00:00-04:00",
+  "simulated": true,
+  "signals": [
+    {
+      "source": "writing",
+      "kind": "note",
+      "label": "Conceptual structure of LLMs",
+      "concepts": [
+        "latent-field",
+        "language",
+        "structure",
+        "inquiry"
+      ],
+      "intensity": 0.92
+    },
+    {
+      "source": "github",
+      "kind": "building",
+      "label": "Agent-native developer systems",
+      "concepts": [
+        "structure",
+        "context",
+        "selection",
+        "inquiry"
+      ],
+      "intensity": 0.7
+    },
+    {
+      "source": "marginalia",
+      "kind": "conversation",
+      "label": "Reading conversations",
+      "concepts": [
+        "language",
+        "interpretation",
+        "transformation",
+        "context"
+      ],
+      "intensity": 0.62
+    },
+    {
+      "source": "x",
+      "kind": "public-inquiry",
+      "label": "Public inquiry",
+      "concepts": [
+        "convergence",
+        "divergence",
+        "variation",
+        "inquiry"
+      ],
+      "intensity": 0.45
+    }
+  ]
+}
