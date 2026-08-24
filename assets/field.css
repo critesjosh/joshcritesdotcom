@@ -1,8 +1,8 @@
 .concept-field {
-  --field-ink: #fff8ea;
-  --field-muted: rgba(255, 248, 234, 0.68);
-  --field-line: rgba(255, 248, 234, 0.2);
-  --field-accent: #f2a253;
+  --field-ink: #fff2d2;
+  --field-muted: rgba(255, 242, 210, 0.72);
+  --field-line: rgba(255, 242, 210, 0.24);
+  --field-accent: #ffc267;
   --image-shift-x: 0px;
   --image-shift-y: 0px;
   --mid-shift-x: 0px;
@@ -13,7 +13,7 @@
   min-height: 100svh;
   overflow: hidden;
   color: var(--field-ink);
-  background: #060a12;
+  background: #182015;
 }
 
 .concept-field::after {
@@ -23,8 +23,8 @@
   content: "";
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(6, 10, 18, 0.72), rgba(6, 10, 18, 0.36) 48%, rgba(6, 10, 18, 0.12)),
-    linear-gradient(0deg, rgba(6, 10, 18, 0.48), transparent 48%);
+    linear-gradient(90deg, rgba(24, 32, 21, 0.76), rgba(24, 32, 21, 0.4) 48%, rgba(24, 32, 21, 0.14)),
+    linear-gradient(0deg, rgba(24, 32, 21, 0.52), transparent 48%);
 }
 
 .concept-field::before {
@@ -45,6 +45,11 @@
   inset: 0;
   opacity: 0;
   animation: field-scene-cycle 24s linear infinite;
+  animation-play-state: paused;
+}
+
+.concept-field.scenes-ready .concept-field-scene {
+  animation-play-state: running;
 }
 
 .concept-field-scene-sunset {
@@ -93,42 +98,80 @@
 
 .concept-field-scene-sunset .concept-field-image-base {
   background-image: url("/assets/header-sunset.webp");
+  background-image: image-set(
+    url("/assets/header-sunset.avif") type("image/avif"),
+    url("/assets/header-sunset.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-sunset .concept-field-image-mid {
+.concept-field.depth-ready .concept-field-scene-sunset .concept-field-image-mid,
+html:not(.js) .concept-field-scene-sunset .concept-field-image-mid {
   background-image: url("/assets/header-mid.webp");
+  background-image: image-set(
+    url("/assets/header-mid.avif") type("image/avif"),
+    url("/assets/header-mid.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-sunset .concept-field-image-foreground {
+.concept-field.depth-ready .concept-field-scene-sunset .concept-field-image-foreground,
+html:not(.js) .concept-field-scene-sunset .concept-field-image-foreground {
   background-image: url("/assets/header-foreground.webp");
+  background-image: image-set(
+    url("/assets/header-foreground.avif") type("image/avif"),
+    url("/assets/header-foreground.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-forest .concept-field-image-base {
+.concept-field.forest-ready .concept-field-scene-forest .concept-field-image-base {
   background-image: url("/assets/forest-path-base.webp");
+  background-image: image-set(
+    url("/assets/forest-path-base.avif") type("image/avif"),
+    url("/assets/forest-path-base.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-forest .concept-field-image-mid {
+.concept-field.forest-ready .concept-field-scene-forest .concept-field-image-mid {
   background-image: url("/assets/forest-path-mid.webp");
+  background-image: image-set(
+    url("/assets/forest-path-mid.avif") type("image/avif"),
+    url("/assets/forest-path-mid.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-forest .concept-field-image-foreground {
+.concept-field.forest-ready .concept-field-scene-forest .concept-field-image-foreground {
   background-image: url("/assets/forest-path-foreground.webp");
+  background-image: image-set(
+    url("/assets/forest-path-foreground.avif") type("image/avif"),
+    url("/assets/forest-path-foreground.webp") type("image/webp")
+  );
 }
 
 .concept-field-scene-leaf .concept-field-image {
   background-position: center 48%;
 }
 
-.concept-field-scene-leaf .concept-field-image-base {
+.concept-field.leaf-ready .concept-field-scene-leaf .concept-field-image-base {
   background-image: url("/assets/orange-leaf-base.webp");
+  background-image: image-set(
+    url("/assets/orange-leaf-base.avif") type("image/avif"),
+    url("/assets/orange-leaf-base.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-leaf .concept-field-image-mid {
+.concept-field.leaf-ready .concept-field-scene-leaf .concept-field-image-mid {
   background-image: url("/assets/orange-leaf-mid.webp");
+  background-image: image-set(
+    url("/assets/orange-leaf-mid.avif") type("image/avif"),
+    url("/assets/orange-leaf-mid.webp") type("image/webp")
+  );
 }
 
-.concept-field-scene-leaf .concept-field-image-foreground {
+.concept-field.leaf-ready .concept-field-scene-leaf .concept-field-image-foreground {
   background-image: url("/assets/orange-leaf-foreground.webp");
+  background-image: image-set(
+    url("/assets/orange-leaf-foreground.avif") type("image/avif"),
+    url("/assets/orange-leaf-foreground.webp") type("image/webp")
+  );
 }
 
 .concept-field-canvas {
@@ -203,7 +246,7 @@
   width: min(100%, 29rem);
   padding: 1.15rem 1.25rem;
   border: 1px solid var(--field-line);
-  background: rgba(6, 10, 18, 0.5);
+  background: rgba(24, 32, 21, 0.56);
   backdrop-filter: blur(9px);
 }
 
@@ -222,7 +265,7 @@
 }
 
 .concept-field-navigation li + li {
-  border-top: 1px solid rgba(255, 248, 234, 0.11);
+  border-top: 1px solid rgba(255, 242, 210, 0.14);
 }
 
 .concept-field-navigation a {

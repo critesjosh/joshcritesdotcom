@@ -49,11 +49,11 @@
       href="/favicon/favicon-32x32.png"
     />
     <link rel="manifest" href="/favicon/site.webmanifest" />
-    <meta name="theme-color" content="#060a12" />
+    <meta name="theme-color" content="#182015" />
     <script>
       document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="/assets/field.css?v=5" />
+    <link rel="stylesheet" href="/assets/field.css?v=6" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -69,12 +69,12 @@
     </script>
     <style>
       :root {
-        --ink: #242522;
-        --muted: #65665f;
-        --paper: #f8f7f2;
-        --line: #d5d4ca;
-        --accent: #9d351e;
-        --accent-wash: #f1e4d8;
+        --ink: #292a22;
+        --muted: #6c6b5c;
+        --paper: #f4f0e5;
+        --line: #d8cfb8;
+        --accent: #a44e22;
+        --accent-wash: #ebdfc9;
         --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       }
       * {
@@ -250,7 +250,7 @@
       }
       .section-intro {
         max-width: 65ch;
-        color: #484943;
+        color: #4e5045;
       }
       .questions {
         margin: 2rem 0 0;
@@ -304,7 +304,7 @@
         padding: 0.12rem 0.38rem;
         color: var(--accent);
         background: var(--accent-wash);
-        border: 1px solid #d9bba9;
+        border: 1px solid #d8b68e;
       }
       .entry p {
         margin-bottom: 0.65rem;
@@ -324,7 +324,7 @@
         margin-top: 1rem;
         padding: 0.8rem 1rem;
         border-left: 2px solid var(--accent);
-        background: #f2f0e8;
+        background: #eee9dc;
       }
       .entry summary {
         cursor: pointer;
@@ -379,7 +379,7 @@
       }
       .book-note {
         display: block;
-        color: #484943;
+        color: #4e5045;
       }
       .now-grid {
         display: grid;
@@ -397,7 +397,7 @@
         margin: 2rem 0 0;
         padding: 1rem 1.4rem;
         border-left: 3px solid var(--accent);
-        color: #3e3f3a;
+        color: #43453a;
         font-size: 1.1rem;
         font-style: italic;
       }
@@ -432,23 +432,39 @@
         min-height: clamp(28rem, 72svh, 52rem);
         padding: 4rem 0;
         overflow: hidden;
-        color: #fff8ea;
-        background: #161219 url("/assets/footer-sunset.webp") center 55% / cover no-repeat;
+        color: #fff2d2;
+        background: #182015;
         font-family: var(--mono);
         font-size: 0.75rem;
       }
+      .footer-image {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .footer-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 55%;
+      }
       footer::before {
         position: absolute;
+        z-index: 1;
         inset: 0;
         content: "";
         pointer-events: none;
         background:
           linear-gradient(to bottom, var(--paper), transparent 18%),
-          linear-gradient(to top, rgba(6, 10, 18, 0.72), transparent 48%);
+          linear-gradient(to top, rgba(24, 32, 21, 0.78), transparent 50%);
       }
       .footer-inner {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         width: min(1100px, calc(100% - 2.5rem));
         margin: 0 auto;
       }
@@ -1163,6 +1179,15 @@
       </main>
     </div>
     <footer>
+      <picture class="footer-image" aria-hidden="true">
+        <source srcset="/assets/footer-sunset.avif" type="image/avif" />
+        <img
+          src="/assets/footer-sunset.webp"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
       <div class="footer-inner">
         Josh Crites. A personal site and early digital assemblage.
       </div>
@@ -1213,6 +1238,6 @@
         if (link) openTargetSection(link.hash);
       });
     </script>
-    <script src="/assets/field.js" defer></script>
+    <script src="/assets/field.js?v=3" defer></script>
   </body>
 </html>

@@ -52,10 +52,10 @@
     };
   });
   const blobs = [
-    { x: .68, y: .24, size: .34, color: [25, 86, 102], speed: .00011 },
-    { x: .88, y: .52, size: .42, color: [124, 54, 64], speed: .00008 },
-    { x: .58, y: .78, size: .38, color: [40, 75, 112], speed: .000095 },
-    { x: .94, y: .84, size: .3, color: [160, 73, 48], speed: .00013 },
+    { x: .68, y: .24, size: .34, color: [61, 92, 55], speed: .00011 },
+    { x: .88, y: .52, size: .42, color: [133, 72, 45], speed: .00008 },
+    { x: .58, y: .78, size: .38, color: [104, 104, 56], speed: .000095 },
+    { x: .94, y: .84, size: .3, color: [171, 87, 42], speed: .00013 },
   ];
   const byId = new Map(nodes.map((node) => [node.id, node]));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -67,6 +67,58 @@
   let frame = 0;
   let visible = true;
   let firstLayout = true;
+
+  const sceneAssetGroups = {
+    depth: ["header-mid", "header-foreground"],
+    forest: ["forest-path-base", "forest-path-mid", "forest-path-foreground"],
+    leaf: ["orange-leaf-base", "orange-leaf-mid", "orange-leaf-foreground"],
+  };
+  let sceneLoadingStarted = false;
+
+  function preloadImage(url) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = resolve;
+      image.onerror = reject;
+      image.src = url;
+    });
+  }
+
+  async function preloadAsset(name) {
+    try {
+      await preloadImage("/assets/" + name + ".avif");
+    } catch {
+      await preloadImage("/assets/" + name + ".webp");
+    }
+  }
+
+  async function loadSceneGroup(name) {
+    try {
+      await Promise.all(sceneAssetGroups[name].map(preloadAsset));
+      field.classList.add(name + "-ready");
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  function startSceneLoading() {
+    if (sceneLoadingStarted || reducedMotion.matches) return;
+    sceneLoadingStarted = true;
+
+    const load = async () => {
+      await loadSceneGroup("depth");
+      const forestReady = await loadSceneGroup("forest");
+      const leafReady = await loadSceneGroup("leaf");
+      if (forestReady && leafReady) field.classList.add("scenes-ready");
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(load, { timeout: 1200 });
+    } else {
+      window.setTimeout(load, 250);
+    }
+  }
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
@@ -140,9 +192,9 @@
       centerX, centerY, 12,
       centerX, centerY, Math.max(width, height) * .72,
     );
-    background.addColorStop(0, "rgba(23,49,58,.18)");
-    background.addColorStop(.48, "rgba(11,25,37,.1)");
-    background.addColorStop(1, "rgba(5,8,17,0)");
+    background.addColorStop(0, "rgba(49,72,42,.18)");
+    background.addColorStop(.48, "rgba(31,45,26,.1)");
+    background.addColorStop(1, "rgba(24,32,21,0)");
     context.fillStyle = background;
     context.fillRect(0, 0, width, height);
 
@@ -170,7 +222,7 @@
       const y = particle.y * height - pointerY * 18 * particle.depth +
         Math.sin(motionTime * .00022 + particle.phase) * 5 * particle.depth;
       context.globalAlpha = .08 + particle.depth * .28;
-      context.fillStyle = particle.depth > .72 ? "#fff8ea" : "#9ec0c3";
+      context.fillStyle = particle.depth > .72 ? "#fff2d2" : "#b8c28b";
       context.beginPath();
       context.arc(x, y, .35 + particle.depth * 1.15, 0, Math.PI * 2);
       context.fill();
@@ -186,8 +238,8 @@
       context.moveTo(from.px, from.py);
       context.lineTo(to.px, to.py);
       context.strokeStyle = emphasis
-        ? "rgba(233,105,67,.38)"
-        : "rgba(255,248,234,.035)";
+        ? "rgba(255,166,74,.4)"
+        : "rgba(255,242,210,.04)";
       context.lineWidth = emphasis ? 1.1 : .65;
       context.stroke();
     });
@@ -200,15 +252,15 @@
 
       if (node.activity > .08 || emphasis) {
         const glow = context.createRadialGradient(node.px, node.py, 0, node.px, node.py, 48);
-        glow.addColorStop(0, emphasis ? "rgba(233,105,67,.24)" : "rgba(255,178,118,.12)");
-        glow.addColorStop(1, "rgba(233,105,67,0)");
+        glow.addColorStop(0, emphasis ? "rgba(255,166,74,.24)" : "rgba(199,183,102,.14)");
+        glow.addColorStop(1, "rgba(255,166,74,0)");
         context.fillStyle = glow;
         context.beginPath();
         context.arc(node.px, node.py, 48, 0, Math.PI * 2);
         context.fill();
       }
 
-      context.fillStyle = emphasis ? "#ff9b70" : "rgba(255,248,234,.46)";
+      context.fillStyle = emphasis ? "#ffc267" : "rgba(255,242,210,.48)";
       context.beginPath();
       context.arc(node.px, node.py, radius, 0, Math.PI * 2);
       context.fill();
@@ -303,11 +355,15 @@
     .catch(() => field.classList.add("presence-unavailable"));
 
   window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("load", startSceneLoading, { once: true });
   reducedMotion.addEventListener("change", () => {
     cancelAnimationFrame(frame);
     firstLayout = true;
     resize();
-    if (!reducedMotion.matches) frame = requestAnimationFrame(animate);
+    if (!reducedMotion.matches) {
+      startSceneLoading();
+      frame = requestAnimationFrame(animate);
+    }
   });
 
   resize();
