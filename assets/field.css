@@ -1,0 +1,252 @@
+.concept-field {
+  --field-ink: #fff8ea;
+  --field-muted: rgba(255, 248, 234, 0.68);
+  --field-line: rgba(255, 248, 234, 0.2);
+  --field-accent: #f2a253;
+  --image-shift-x: 0px;
+  --image-shift-y: 0px;
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--field-ink);
+  background: #060a12;
+}
+
+.concept-field::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6, 10, 18, 0.72), rgba(6, 10, 18, 0.36) 48%, rgba(6, 10, 18, 0.12)),
+    linear-gradient(0deg, rgba(6, 10, 18, 0.48), transparent 48%);
+}
+
+.concept-field::before {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: clamp(3rem, 8vh, 6rem);
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--paper));
+}
+
+.concept-field-image {
+  position: absolute;
+  z-index: 0;
+  inset: -2.5%;
+  background-image: url("/assets/header-sunset.webp");
+  background-position: center 54%;
+  background-size: cover;
+  transform: translate3d(var(--image-shift-x), var(--image-shift-y), 0) scale(1.045);
+  animation: field-image-drift 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.concept-field-canvas {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.concept-field-interface {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(21rem, 0.78fr);
+  grid-template-rows: 1fr;
+  gap: clamp(2.5rem, 7vw, 8rem);
+  width: min(1180px, calc(100% - 2.5rem));
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vh, 7.5rem) 0 clamp(1.5rem, 4vh, 3rem);
+}
+
+.concept-field-profile {
+  align-self: center;
+  max-width: 41rem;
+}
+
+.concept-field-motto,
+.concept-field-navigation {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.concept-field-name {
+  margin: 0 0 0.75rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 8.5vw, 8rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.88;
+}
+
+.concept-field-tagline {
+  margin: 0 0 1.25rem;
+  color: var(--field-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.6vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.concept-field-motto {
+  margin: 0 0 1rem;
+  color: var(--field-ink);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.concept-field-intro {
+  max-width: 49ch;
+  margin: 0;
+  color: var(--field-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.6vw, 1.16rem);
+  line-height: 1.55;
+}
+
+.concept-field-navigation {
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 29rem);
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--field-line);
+  background: rgba(6, 10, 18, 0.5);
+  backdrop-filter: blur(9px);
+}
+
+.concept-field-navigation > p {
+  margin: 0 0 0.8rem;
+  color: var(--field-muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.concept-field-navigation ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.concept-field-navigation li + li {
+  border-top: 1px solid rgba(255, 248, 234, 0.11);
+}
+
+.concept-field-navigation a {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr auto;
+  gap: 0.65rem;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--field-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.6vw, 1.24rem);
+  text-decoration: none;
+}
+
+.concept-field-navigation a::after {
+  color: var(--field-accent);
+  content: "↘";
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  opacity: 0;
+  transform: translate(-0.25rem, -0.25rem);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.concept-field-navigation a span {
+  color: var(--field-accent);
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+}
+
+.concept-field-navigation a:hover::after,
+.concept-field-navigation a:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.concept-field-navigation a:focus-visible {
+  outline: 3px solid var(--field-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .concept-field-interface {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    align-content: start;
+    gap: 2.25rem;
+    padding-top: 4.25rem;
+  }
+
+  .concept-field-profile,
+  .concept-field-navigation {
+    grid-column: 1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .concept-field-name {
+    font-size: clamp(3.8rem, 18vw, 6rem);
+  }
+
+  .concept-field-navigation {
+    padding: 0.85rem 1rem;
+  }
+
+  .concept-field-navigation a {
+    min-height: 2.55rem;
+  }
+}
+
+@keyframes field-image-drift {
+  from {
+    transform: translate3d(var(--image-shift-x), var(--image-shift-y), 0) scale(1.045);
+  }
+  to {
+    transform: translate3d(calc(var(--image-shift-x) - 0.7%), calc(var(--image-shift-y) - 0.5%), 0) scale(1.085);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .concept-field-image {
+    animation: none;
+    transform: scale(1.045);
+  }
+
+  .concept-field-navigation a::after {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .concept-field {
+    color: CanvasText;
+    background: Canvas;
+  }
+
+  .concept-field-image,
+  .concept-field-canvas,
+  .concept-field::before,
+  .concept-field::after {
+    display: none;
+  }
+
+  .concept-field-navigation {
+    background: Canvas;
+  }
+}
+
+html:not(.js) .concept-field-canvas {
+  display: none;
+}
