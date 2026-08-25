@@ -82,6 +82,17 @@ article {
   border-bottom: 1px solid var(--line);
 }
 
+.article-image {
+  margin-top: 2.5rem;
+}
+
+.article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
 .eyebrow,
 .meta {
   color: var(--muted);
