@@ -201,7 +201,6 @@ html:not(.js) .concept-field-scene-sunset .concept-field-image-foreground {
   max-width: 41rem;
 }
 
-.concept-field-motto,
 .concept-field-navigation {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -222,13 +221,6 @@ html:not(.js) .concept-field-scene-sunset .concept-field-image-foreground {
   font-size: clamp(1.35rem, 2.6vw, 2.2rem);
   font-style: italic;
   line-height: 1.1;
-}
-
-.concept-field-motto {
-  margin: 0 0 1rem;
-  color: var(--field-ink);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
 }
 
 .concept-field-intro {
