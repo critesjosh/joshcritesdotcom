@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Josh Crites - Choice, technology, and nature</title>
+    <title>Josh Crites - AI engineering and developer experience</title>
     <meta
       name="description"
-      content="The personal site and digital garden of Josh Crites: work, experiments, notes, books, and questions about AI, privacy, developer tools, agency, and complex systems."
+      content="Josh Crites is an engineering and developer-experience leader working across AI agents, developer tools, privacy, and complex emerging technologies."
     />
     <link rel="canonical" href="https://joshcrites.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://joshcrites.com/" />
     <meta
       property="og:title"
-      content="Josh Crites - Technology, agency, intelligence, and emergence"
+      content="Josh Crites - AI engineering and developer experience"
     />
     <meta
       property="og:description"
-      content="Work, experiments, notes, books, and questions about AI, privacy, developer tools, agency, and complex systems."
+      content="Engineering leadership, AI agents, developer tools, privacy, and experiments in making complex technology usable."
     />
     <meta
       property="og:image"
@@ -26,11 +26,11 @@
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:title"
-      content="Josh Crites - Technology, agency, intelligence, and emergence"
+      content="Josh Crites - AI engineering and developer experience"
     />
     <meta
       name="twitter:description"
-      content="Work, experiments, notes, books, and questions about AI, privacy, developer tools, agency, and complex systems."
+      content="Engineering leadership, AI agents, developer tools, privacy, and experiments in making complex technology usable."
     />
     <meta
       name="twitter:image"
@@ -61,7 +61,17 @@
         "name": "Josh Crites",
         "url": "https://joshcrites.com/",
         "email": "mailto:jc@joshcrites.com",
+        "jobTitle": "Engineering and Developer Experience Leader",
+        "knowsAbout": [
+          "AI agents",
+          "developer experience",
+          "developer tools",
+          "technical documentation",
+          "privacy",
+          "zero-knowledge proofs"
+        ],
         "sameAs": [
+          "https://www.linkedin.com/in/joshcrites",
           "https://github.com/critesjosh",
           "https://twitter.com/critesjosh_"
         ]
@@ -393,6 +403,29 @@
       .now-grid p {
         margin-bottom: 0;
       }
+      .career-list {
+        margin: 2rem 0 0;
+        border-top: 1px solid var(--line);
+      }
+      .career-item {
+        display: grid;
+        grid-template-columns: minmax(12rem, 1fr) minmax(0, 1.7fr);
+        gap: 1.5rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .career-item h3,
+      .career-item p {
+        margin-bottom: 0;
+      }
+      .career-item .meta {
+        margin-top: 0.3rem;
+      }
+      .availability {
+        margin: 1.25rem 0 0;
+        padding-left: 1rem;
+        border-left: 2px solid var(--accent);
+      }
       blockquote {
         margin: 2rem 0 0;
         padding: 1rem 1.4rem;
@@ -517,6 +550,10 @@
         .now-grid {
           grid-template-columns: 1fr;
         }
+        .career-item {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
         html {
@@ -554,10 +591,22 @@
           <div>
             <h1 class="concept-field-name">Josh Crites</h1>
             <p class="concept-field-tagline">sharing beauty</p>
+            <p class="concept-field-role">
+              Engineering and developer-experience leader
+            </p>
             <p class="concept-field-intro">
-              I explore sovereignty, nature, and the tools people use to
-              understand and shape the world—from privacy and AI agents to
-              learning, dreams, music, and how people think together.
+              I build tools, documentation systems, and agentic workflows that
+              help people understand and use complex technology. My work spans
+              AI agents, developer experience, privacy, and emerging software
+              systems.
+            </p>
+            <p class="concept-field-actions">
+              <a href="#work">Selected work</a>
+              <a href="/assets/josh-crites-resume.pdf">Résumé</a>
+              <a href="https://www.linkedin.com/in/joshcrites"
+                >LinkedIn <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
             </p>
           </div>
         </header>
@@ -642,29 +691,71 @@
           <details class="section-toggle section-details">
             <summary>View work and experiments</summary>
             <div class="section-content">
-          <p class="group-label">Selected work</p>
+          <p class="group-label">Featured work</p>
+          <article class="entry">
+            <h3>AI-native developer support at Aztec</h3>
+            <p class="meta">
+              <span>RAG, MCP, evaluation, developer tooling</span>
+            </p>
+            <p>
+              I designed AI-assisted support workflows connecting models with
+              versioned documentation, source repositories, community
+              knowledge, and executable development environments. The system
+              used uncertainty and developer failures as signals for human
+              validation, documentation fixes, and product feedback.
+            </p>
+            <p class="links">
+              <a href="/posts/ai-native-developer-support-at-aztec/"
+                >Read the case study</a
+              >
+            </p>
+          </article>
+          <article class="entry">
+            <h3>Agent-ready developer tools</h3>
+            <p class="meta">
+              <span>Agents, context engineering, software development</span>
+            </p>
+            <p>
+              I built and tested tools for helping coding agents work with
+              unfamiliar systems: an agent benchmark, an MCP server, a Claude
+              Code plugin, and a reproducible development environment. Together
+              they explore how context, tools, and evaluation change developer
+              experience when agents become capable builders.
+            </p>
+            <p class="links">
+              <a href="https://github.com/critesjosh/aztec-agent-builder-bench"
+                >Agent Builder Bench <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://github.com/AztecProtocol/mcp-server"
+                >MCP server <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://github.com/critesjosh/aztec-claude-plugin"
+                >Claude Code plugin <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://github.com/critesjosh/aztec-dev-env"
+                >Development environment <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              >
+            </p>
+          </article>
           <article class="entry">
             <h3>Aztec and Noir developer ecosystem</h3>
             <p class="meta">
-              <span>Developer relations and ecosystem design</span>
+              <span>Developer relations, education, ecosystem design</span>
             </p>
             <p>
-              I led Developer Relations at Aztec, helping developers understand
-              and adopt difficult cryptographic infrastructure. The work
-              included education, documentation, workshops, examples, support
-              systems, ecosystem feedback, and team leadership. Later, I
-              increasingly explored AI-assisted developer experience and
-              agent-readable knowledge systems. I distilled the values, goals,
-              and operating model behind that work in a
-              <a
-                href="https://docs.google.com/presentation/d/19g05il5QRhYsi3mFajd7EIoQleNkirp8Ob5ngTnY19w/edit?usp=drivesdk"
-                >Developer Relations Strategy presentation
-                <span aria-hidden="true">&#8599;</span
-                ><span class="sr-only"> (external site)</span></a
-              >.
+              As Head of Developer Relations, I led a six-person team helping
+              developers adopt a privacy-focused smart-contract platform and
+              the Noir programming language. I worked across documentation,
+              examples, workshops, support systems, product feedback, and
+              technical strategy.
             </p>
             <p class="links">
-              <a href="https://aztec.network"
+              <a
+                href="https://docs.google.com/presentation/d/19g05il5QRhYsi3mFajd7EIoQleNkirp8Ob5ngTnY19w/edit?usp=drivesdk"
+                >Developer Relations strategy <span aria-hidden="true">&#8599;</span
+                ><span class="sr-only"> (external site)</span></a
+              ><a href="https://aztec.network"
                 >Aztec <span aria-hidden="true">&#8599;</span
                 ><span class="sr-only"> (external site)</span></a
               ><a href="https://noir-lang.org"
@@ -673,6 +764,7 @@
               >
             </p>
           </article>
+          <p class="group-label">Other work and experiments</p>
           <article class="entry">
             <h3>Bank of JubJub</h3>
             <p class="meta">
@@ -686,7 +778,7 @@
             </p>
             <p class="links">
               <a href="https://github.com/Bank-of-JubJub/base"
-                >Source code <span aria-hidden="true">&#8599;</span
+                >Explore the repository <span aria-hidden="true">&#8599;</span
                 ><span class="sr-only"> (external site)</span></a
               >
             </p>
@@ -705,7 +797,7 @@
             </p>
             <p class="links">
               <a href="https://github.com/critesjosh/aztec-mobile-proving"
-                >Source code <span aria-hidden="true">&#8599;</span
+                >Explore the repository <span aria-hidden="true">&#8599;</span
                 ><span class="sr-only"> (external site)</span></a
               >
             </p>
@@ -764,37 +856,6 @@
             <p class="links">
               <a href="https://github.com/critesjosh/nounish-blockies"
                 >Source code <span aria-hidden="true">&#8599;</span
-                ><span class="sr-only"> (external site)</span></a
-              >
-            </p>
-          </article>
-          <article class="entry">
-            <h3>AI-native developer experience</h3>
-            <p class="meta">
-              <span class="status">developing</span
-              ><span>Agents, knowledge systems, developer tools</span>
-            </p>
-            <p>
-              An ongoing investigation into how developer experience changes
-              when software is increasingly written by agents: agent-readable
-              documentation, MCP tools, evals, automated feedback loops, and
-              interfaces spanning the terminal, IDE, web, and chat.
-            </p>
-            <p class="links">
-              <a href="https://github.com/critesjosh/aztec-agent-builder-bench"
-                >Aztec Agent Builder Bench
-                <span aria-hidden="true">&#8599;</span
-                ><span class="sr-only"> (external site)</span></a
-              ><a href="https://github.com/AztecProtocol/mcp-server"
-                >Aztec MCP server <span aria-hidden="true">&#8599;</span
-                ><span class="sr-only"> (external site)</span></a
-              >
-              <a href="https://github.com/critesjosh/aztec-claude-plugin"
-                >Aztec Claude Code plugin <span aria-hidden="true">&#8599;</span
-                ><span class="sr-only"> (external site)</span></a
-              ><a href="https://github.com/critesjosh/aztec-dev-env"
-                >Aztec development environment
-                <span aria-hidden="true">&#8599;</span
                 ><span class="sr-only"> (external site)</span></a
               >
             </p>
@@ -1083,7 +1144,11 @@
 
         <section id="now" data-number="05">
           <h2>Now</h2>
-          <p class="meta">Last updated: August 2026</p>
+          <p class="meta">Last updated: September 2026</p>
+          <p class="availability">
+            I am exploring remote roles in AI engineering, developer experience,
+            developer relations leadership, and forward-deployed engineering.
+          </p>
           <details class="section-toggle section-details">
             <summary>View current focus</summary>
             <div class="section-content">
@@ -1116,8 +1181,8 @@
             <div>
               <h3>Local</h3>
               <p>
-                Developing a Detroit-area workshop on agentic fundamentals and
-                practical systems.
+                Continuing a Detroit-area workshop series on agentic
+                fundamentals and practical systems.
               </p>
             </div>
           </div>
@@ -1129,11 +1194,44 @@
         <section id="about" data-number="06">
           <h2>About</h2>
           <p class="section-intro">
-            I am based in the Detroit area. Much of my career has involved
-            helping developers engage with emerging technology, most recently
-            through developer relations leadership at Aztec and work with
-            cryptography, privacy, and developer ecosystems.
+            I am based in the Detroit area and have spent eight years helping
+            developers engage with emerging technology, most recently as Head
+            of Developer Relations at Aztec.
           </p>
+          <div class="career-list" aria-label="Professional experience">
+            <div class="career-item">
+              <div>
+                <h3>Aztec Labs</h3>
+                <p class="meta">May 2022–July 2026</p>
+              </div>
+              <p>
+                Head of Developer Relations, leading developer education,
+                tooling, documentation, support systems, and AI-assisted
+                developer workflows for Aztec and Noir.
+              </p>
+            </div>
+            <div class="career-item">
+              <div>
+                <h3>cLabs / Celo Foundation</h3>
+                <p class="meta">February 2020–May 2022</p>
+              </div>
+              <p>
+                Developer Relations Engineer designing developer experiences,
+                technical education, example applications, and community
+                programs for a mobile-first financial platform.
+              </p>
+            </div>
+            <div class="career-item">
+              <div>
+                <h3>ConsenSys Academy</h3>
+                <p class="meta">January 2018–February 2020</p>
+              </div>
+              <p>
+                Ethereum Educator designing and operating technical curriculum
+                for software developers entering the Ethereum ecosystem.
+              </p>
+            </div>
+          </div>
           <details class="section-toggle section-details">
             <summary>View more about me</summary>
             <div class="section-content">
@@ -1163,6 +1261,13 @@
               >GitHub <span aria-hidden="true">&#8599;</span
               ><span class="sr-only"> (external site)</span></a
             >
+            &middot;
+            <a href="https://www.linkedin.com/in/joshcrites"
+              >LinkedIn <span aria-hidden="true">&#8599;</span
+              ><span class="sr-only"> (external site)</span></a
+            >
+            &middot;
+            <a href="/assets/josh-crites-resume.pdf">Résumé</a>
             &middot;
             <a href="https://twitter.com/critesjosh_"
               >X <span aria-hidden="true">&#8599;</span
