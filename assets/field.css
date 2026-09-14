@@ -223,6 +223,18 @@ html:not(.js) .concept-field-scene-sunset .concept-field-image-foreground {
   line-height: 1.1;
 }
 
+.concept-field-role {
+  max-width: 34rem;
+  margin: 0 0 0.75rem;
+  color: var(--field-ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(0.72rem, 1.1vw, 0.86rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
 .concept-field-intro {
   max-width: 49ch;
   margin: 0;
@@ -230,6 +242,25 @@ html:not(.js) .concept-field-scene-sunset .concept-field-image-foreground {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1rem, 1.6vw, 1.16rem);
   line-height: 1.55;
+}
+
+.concept-field-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.1rem;
+  margin: 1.4rem 0 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.concept-field-actions a {
+  color: var(--field-accent);
+  text-underline-offset: 0.18em;
+}
+
+.concept-field-actions a:focus-visible {
+  outline: 3px solid var(--field-accent);
+  outline-offset: 4px;
 }
 
 .concept-field-navigation {
