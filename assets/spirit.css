@@ -137,3 +137,30 @@ footer::before {
 @media (prefers-reduced-motion: reduce) {
   .toc a { transition: none; }
 }
+
+
+/* Refine text hierarchy: titles stay ink/patina; metallic colors are accents. */
+.site-header h1 {
+  color: #252724;
+}
+.entry h3,
+.entry h3 a,
+.book-title,
+.book-title a,
+.career-item h3,
+.career-item h3 a {
+  color: var(--deep-patina);
+}
+.entry h3 a:hover,
+.book-title a:hover,
+.career-item h3 a:hover {
+  color: var(--bronze);
+}
+.links a,
+.section-intro a {
+  color: var(--deep-patina);
+}
+.links a:hover,
+.section-intro a:hover {
+  color: var(--bronze);
+}
