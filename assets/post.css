@@ -1,10 +1,12 @@
 :root {
-  --ink: #242522;
-  --muted: #65665f;
-  --paper: #f8f7f2;
-  --line: #d5d4ca;
-  --accent: #9d351e;
-  --accent-wash: #f1e4d8;
+  --ink: #203e39;
+  --muted: #5f6963;
+  --paper: #f4f0e7;
+  --line: #cfc7b8;
+  --accent: #477268;
+  --accent-wash: #e1e7df;
+  --bronze: #816348;
+  --gold: #b58b2a;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
@@ -57,6 +59,7 @@ a:focus-visible {
 }
 
 .site-header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
@@ -66,6 +69,17 @@ a:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 
 .site-name {
@@ -125,7 +139,7 @@ h1 {
 .subtitle {
   max-width: 58ch;
   margin-bottom: 1.25rem;
-  color: #484943;
+  color: #4d5b56;
   font-size: 1.2rem;
   font-style: italic;
   line-height: 1.5;
@@ -173,7 +187,7 @@ h1 {
   margin-top: 4rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
-  color: #484943;
+  color: #4d5b56;
   font-size: 0.92rem;
 }
 
