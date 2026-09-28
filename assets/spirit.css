@@ -1,0 +1,139 @@
+/* Spirit of Detroit-inspired visual system.
+   Abstracts patinated bronze, gilded orb, civic stone, and horizontal balance
+   without reproducing the monument itself. */
+:root {
+  --ink: #203e39;
+  --muted: #5f6963;
+  --paper: #f4f0e7;
+  --line: #cfc7b8;
+  --accent: #477268;
+  --accent-wash: #e1e7df;
+  --bronze: #816348;
+  --gold: #b58b2a;
+  --deep-patina: #203e39;
+  --bone: #f4f0e7;
+}
+
+body {
+  color: #252724;
+  background:
+    radial-gradient(circle at 82% 7%, rgba(181,139,42,.07) 0 1px, transparent 1.5px),
+    var(--paper);
+  background-size: 32px 32px;
+}
+
+a { color: var(--deep-patina); }
+a:hover { color: var(--bronze); }
+
+.site-header {
+  position: relative;
+  padding-top: clamp(4.5rem, 12vw, 8.5rem);
+  border-color: var(--line);
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  left: 180px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 7px rgba(181,139,42,.09);
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  top: calc(3rem + 5px);
+  left: 0;
+  width: 160px;
+  height: 1px;
+  background: var(--deep-patina);
+}
+
+h1, h2 {
+  color: var(--deep-patina);
+  letter-spacing: -.025em;
+}
+h1 { line-height: .92; }
+h2 { line-height: 1.02; }
+h3 { color: var(--deep-patina); }
+
+.motto {
+  color: var(--bronze);
+  font-style: normal;
+}
+
+.toc { border-color: var(--line); }
+.toc a span,
+section::before,
+.questions li::before {
+  color: var(--gold);
+}
+.toc a {
+  position: relative;
+  transition: color 150ms ease;
+}
+.toc a::after {
+  content: "";
+  align-self: center;
+  flex: 1;
+  height: 1px;
+  margin-left: .4rem;
+  background: var(--line);
+}
+.toc a:hover { color: var(--bronze); }
+
+section { border-color: var(--line); }
+section > h2,
+.section-toggle > summary h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+section > h2::after,
+.section-toggle > summary h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), transparent);
+}
+
+.status {
+  color: var(--deep-patina);
+  background: var(--accent-wash);
+  border-color: #aebfb8;
+}
+.entry details {
+  border-left-color: var(--gold);
+  background: rgba(129,99,72,.07);
+}
+.entry summary,
+.section-details > summary { color: var(--bronze); }
+
+blockquote {
+  border-left-color: var(--gold);
+  color: #414944;
+  background: rgba(181,139,42,.045);
+}
+
+footer {
+  color: #eee5d4;
+  background: var(--deep-patina);
+}
+footer::before {
+  background:
+    linear-gradient(to bottom, var(--paper), transparent 18%),
+    linear-gradient(to top, rgba(18,48,43,.82), transparent 52%);
+}
+
+@media (max-width: 700px) {
+  .site-header::before { left: auto; right: 0; top: 2.25rem; }
+  .site-header::after { left: 0; width: calc(100% - 2rem); top: calc(2.25rem + 5px); }
+  section > h2::after,
+  .section-toggle > summary h2::after { min-width: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc a { transition: none; }
+}
