@@ -1,0 +1,43 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# Josh Crites
+
+> Josh Crites is an engineering and developer-experience leader based in the Detroit area. He builds developer tools, knowledge systems, and workflows that help people and AI agents use complex technology. This site is a personal collection of work, experiments, essays, books, and open questions.
+
+From May 2022 to July 2026 Josh was Head of Developer Relations at Aztec Labs, working on Aztec and Noir. Before that he was a Developer Relations Engineer at cLabs / Celo Foundation and an Ethereum Educator at ConsenSys Academy. His recent work is about deploying AI inside organizations, agent-ready developer tooling, privacy, and how people keep their judgement as agents speed up learning and implementation.
+
+The homepage (https://joshcrites.com/) is one page with these sections: Questions I'm exploring (#questions), Work and experiments (#work), Ideas and notes (#ideas), Library (#library), Now (#now), About (#about), and Contact (#contact).
+
+## Essays
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description }}{% endfor %}
+
+## Work and experiments
+
+- [AI-native developer support at Aztec]({{ "/posts/ai-native-developer-support-at-aztec/" | absolute_url }}): AI-assisted support workflows connecting models with versioned documentation, source repositories, community knowledge, and executable development environments.
+- [Aztec Agent Builder Bench](https://github.com/critesjosh/aztec-agent-builder-bench): A benchmark for coding agents working with an unfamiliar system.
+- [Aztec MCP server](https://github.com/AztecProtocol/mcp-server): An MCP server that gives coding agents context about Aztec.
+- [Aztec Claude Code plugin](https://github.com/critesjosh/aztec-claude-plugin): A Claude Code plugin for Aztec development.
+- [Aztec development environment](https://github.com/critesjosh/aztec-dev-env): A reproducible development environment for people and agents.
+- [ContextReader](https://github.com/critesjosh/context-reader): A reading application with an S3-compatible Cloudflare R2 storage layer for uploaded documents.
+- [Marginalia](https://github.com/critesjosh/marginalia/pull/39): A personal reading project with an opt-in intelligence layer built on Cloudflare Workers and Databricks (in development).
+- [Agentic Wallet](https://github.com/critesjosh/agentic-wallet): An experiment in fine-tuning small models for wallet tasks, where deterministic code keeps control of approval and signing.
+- [Bank of JubJub](https://github.com/Bank-of-JubJub/base): Private on-chain transfers using zero-knowledge proofs and homomorphic encryption.
+- [On-device Aztec proving](https://github.com/critesjosh/aztec-mobile-proving): A native Android proof of concept for generating and verifying Aztec client-side proofs on the device.
+- [Can't See Past My Shades](https://github.com/critesjosh/past-my-shades): An ETHDenver 2024 hackathon suite of private ERC-20 applications: sealed-bid auctions, private crowdfunding, and private token voting.
+- [DreamLens](https://dreamlens.joshcrites.com): An experiment in using AI as an interpretive partner for exploring recurring symbols, patterns, and perspectives in one's inner life ([source](https://github.com/critesjosh/dreamlens)).
+
+## Contact
+
+- Email: jc@joshcrites.com
+- [GitHub](https://github.com/critesjosh)
+- [LinkedIn](https://www.linkedin.com/in/joshcrites)
+- [X](https://twitter.com/critesjosh_)
+
+## Optional
+
+- [Résumé (PDF)]({{ "/assets/josh-crites-resume.pdf" | absolute_url }})
+- [Nounish Blockies](https://github.com/critesjosh/nounish-blockies): An archived experiment in generative identity and onchain art.
+- [Aztec](https://aztec.network) and [Noir](https://noir-lang.org): The privacy-focused smart-contract platform and programming language whose developer ecosystem Josh helped build.
